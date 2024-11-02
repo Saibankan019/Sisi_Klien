@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Saiban_kan</title>
+</head>
+
+<body class="bd">
+    <div class="container">
+        <header>
+            <button>Log out</button>
+        </header>
+
+        <div class="main">
+            <aside class="">
+                <h1>Admin panel</h1>
+                <nav>
+                    <ul>
+                        <li><a href="">Dasboard</a></li>
+                        <li><a href="">Mahasiswa</a></li>
+                        <li><a href="">Settings</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="content">
+                <h2>Daftar Mahasiswa</h2>
+                <button id="btnTambah">Tambah Mahasiswa</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listMahasiswa">
+                        <tr>
+                            <td>1</td>
+                            <td>A11.2022.14619</td>
+                            <td>Muhammad Fadhlan Hakim</td>
+                            <td>
+                                <button class="btnEdit" onclick="openEditModal('A11.2022.14619', 'Muhammad Fadhlan Hakim')">Edit</button>
+                                <button class="btnHapus" onclick="confirmDelete('A11.2022.14619')">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>A11.2022.14111</td>
+                            <td>Muhamado Fadoran hakimu</td>
+                            <td>
+                                <button class="btnEdit" onclick="openEditModal('A11.2022.14111', 'Muhamado Fadoran hakimu')">Edit</button>
+                                <button class="btnHapus" onclick="confirmDelete('A11.2022.14111')">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>A11.2022.14222</td>
+                            <td>Saiban Kan</td>
+                            <td>
+                                <button class="btnEdit" onclick="openEditModal('A11.2022.14222', 'Saiban Kan')">Edit</button>
+                                <button class="btnHapus" onclick="confirmDelete('A11.2022.14222')">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <footer>
+            &copy; 2024 Pembelajar Normal
+        </footer>
+    </div>
+
+    <!-- Modal Tambah Mahasiswa -->
+    <div id="modalTambah" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalTambah')">&times;</span>
+            <h2>Tambah Mahasiswa</h2>
+            <form>
+                <label for="nim">NIM</label>
+                <input type="text" id="nim" name="nim"><br>
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama"><br>
+                <button type="submit">Tambah</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Edit Mahasiswa -->
+    <div id="modalEdit" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalEdit')">&times;</span>
+            <h2>Edit Mahasiswa</h2>
+            <form>
+                <label for="editNim">NIM</label>
+                <input type="text" id="editNim" name="editNim" disabled><br>
+                <label for="editNama">Nama</label>
+                <input type="text" id="editNama" name="editNama"><br>
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup Konfirmasi Hapus -->
+    <div id="modalHapus" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalHapus')">&times;</span>
+            <h2>Konfirmasi Hapus</h2>
+            <p>Apakah Anda yakin ingin menghapus mahasiswa ini?</p>
+            <button id="confirmDeleteBtn">Hapus</button>
+            <button onclick="closeModal('modalHapus')">Batal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
