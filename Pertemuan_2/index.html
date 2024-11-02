@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Tailwind</title>
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen just">
+        <aside class="bg-indigo-900 w-64">
+            
+            <h1 class="text-3xl text-white mt-10 ms-3">Aplikasi Siaked</h1>
+            <nav class="p-10 flex flex-col gap-">
+                <ul>
+                    <li><a class="text-white text-xl" href="/">Dashboard</a></li>
+                    <li><a class="text-white text-xl" href="/">About</a></li>
+                    <li><a class="text-white text-xl" href="/">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- content -->
+        <div class="flex flex-col flex-1">
+            <!-- header -->
+            <header class="bg-white p-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-3xl">Dashboard</h1>
+                    <button id="logout-button" class="bg-blue-500 text-white px-5 py-2 rounded-xl">Log Out</button>
+                </div>
+            </header>
+
+            <div class="flex justify-between p-6 items-center"> 
+                <h2 class="font-bold text-xl">List Mahasiswa</h2>
+                <button id="btn-tambah" class="bg-lime-600 px-5 py-2 rounded-xl text-white">Tambah Mahasiswa</button>
+            </div>
+
+            <!-- main -->
+            <main class="flex-grow px-6">
+                <div class="bg-white p-6 shadow rounded-lg">
+                    <table class="border border-collapse border-slate-900 min-w-full text-center">
+                        <thead>
+                            <tr>
+                                <th class="border border-slate-300">NO</th>
+                                <th class="border border-slate-300">NIM</th>
+                                <th class="border border-slate-300">Nama</th>
+                                <th class="border border-slate-300">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-slate-300">1. </td>
+                                <td class="border border-slate-300">A11.2022.14619</td>
+                                <td class="border border-slate-300">Muhammad Fadhlan Hakim</td>
+                                <td class="border border-slate-300">
+                                    <button class="bg-yellow-400 px-5 m-2 py-2 rounded-xl edit-button">Edit</button>
+                                    <button class="bg-red-400 px-5 py-2 rounded-xl delete-button">Delete</button>
+                                </td>   
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-300">2. </td>
+                                <td class="border border-slate-300">A11.2022.14596</td>
+                                <td class="border border-slate-300">Ardian Setya Pradana</td>
+                                <td class="border border-slate-300">
+                                    <button class="bg-yellow-400 px-5 m-2 py-2 rounded-xl edit-button">Edit</button>
+                                    <button class="bg-red-400 px-5 py-2 rounded-xl delete-button">Delete</button>
+                                </td>   
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-300">3. </td>
+                                <td class="border border-slate-300">A11.2022.14626</td>
+                                <td class="border border-slate-300">Fathir El Quadra</td>
+                                <td class="border border-slate-300">
+                                    <button class="bg-yellow-400 px-5 m-2 py-2 rounded-xl edit-button">Edit</button>
+                                    <button class="bg-red-400 px-5 py-2 rounded-xl delete-button">Delete</button>
+                                </td>   
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+            <!-- footer -->
+             <footer class="bg-white text-center">
+                <h1>Admin KANG GACOR &copy; All Right Reserved </h1>
+             </footer>
+        </div>
+
+    </div>
+
+    <div id="modal-tambah" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+            <form action="">
+                <div class="mb-4">
+                    <label for="name">Nama</label>
+                    <input type="text" class="w-full mt-2 bg-slate-200 rounded-lg px-3 py-1 border">
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-green-500 text-white px-5 py-2 rounded-xl mr-2">Simpan</button>
+                    <button type="button" id="close-modal" class="bg-gray-500 text-white px-5 py-2 rounded-xl mr-2">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        // Show modal tambah mahasiswa
+        $('#btn-tambah').click(function(){
+            $('#modal-tambah').removeClass('hidden');
+        });
+
+        // Close modal tambah mahasiswa
+        $('#close-modal').click(function(){
+            $('#modal-tambah').addClass('hidden');
+        });
+
+        // Log out confirmation
+        $('#logout-button').click(function(){
+            Swal.fire({
+                title: 'Meh metu ki?',
+                text: 'Pikir - pikir sek!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'GASS wae!',
+                cancelButtonText: 'Santai-santai!',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'WS DOLAN RONO!',
+                        'Tapi cpt balek neh.',
+                        'success'
+                    );
+                    // Perform logout logic here
+                }
+            });
+        });
+
+        // Edit Mahasiswa
+        $('.edit-button').click(function(){
+            Swal.fire({
+                title: 'Edit Mahasiswa',
+                html: '<input id="edit-nama" class="swal2-input" placeholder="Nama">',
+                showCancelButton: true,
+                confirmButtonText: 'Simpan',
+                cancelButtonText: 'Batal',
+                preConfirm: () => {
+                    const nama = $('#edit-nama').val();
+                    if (!nama) {
+                        Swal.showValidationMessage('Nama ne di ISI sek cok');
+                    }
+                    return { nama: nama };
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Aman ws Kesimpen!',
+                        `Data mahasiswa updated: ${result.value.nama}`,
+                        'BERHASIL'
+                    );
+                    
+                }
+            });
+        });
+
+        // Delete Mahasiswa
+        $('.delete-button').click(function(){
+            Swal.fire({
+                title: 'HAPUS ki?',
+                text: 'YAKIN MEH DI HAPUS GA!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'GAZZZ!',
+                cancelButtonText: 'SEK-SEK!',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Ke Hapus ws an!',
+                        'Ojo nyesel!!',
+                        'BERHASIL'
+                    );
+                    
+                }
+            });
+        });
+    </script>
+</body>
+</html>
