@@ -1,0 +1,24 @@
+Catatn Menjalankan ReactVite+tailwind
+
+npm create vite@latest UTS_14619 -- --template react
+cd proyek
+npm install
+npm run dev
+
+#tailwind
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+#tambahan React
+npm install prop-types
+npm install react-router-dom
+npm install react-hook-form
+
+# ++
+npm install formik
+npm install react-icons
+npm install framer-motion
+npm install axios
+npm install zustand
+npm install @reduxjs/toolkit react-redux
+
